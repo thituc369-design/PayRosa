@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: var(--font-dm-sans);
+  --font-heading: var(--font-space-grotesk);
+  --font-mono: ui-monospace, monospace;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+}
+
+:root {
+  --background: 180 20% 98%;
+  --foreground: 180 15% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 180 15% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 180 15% 10%;
+  --primary: 174 72% 36%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 174 20% 94%;
+  --secondary-foreground: 174 72% 25%;
+  --muted: 180 15% 94%;
+  --muted-foreground: 180 10% 45%;
+  --accent: 174 30% 88%;
+  --accent-foreground: 174 72% 25%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 180 15% 88%;
+  --input: 180 15% 88%;
+  --ring: 174 72% 36%;
+}
+
+.dark {
+  --background: 180 15% 8%;
+  --foreground: 180 10% 95%;
+  --card: 180 12% 12%;
+  --card-foreground: 180 10% 95%;
+  --popover: 180 12% 12%;
+  --popover-foreground: 180 10% 95%;
+  --primary: 174 65% 48%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 180 12% 18%;
+  --secondary-foreground: 174 65% 70%;
+  --muted: 180 12% 18%;
+  --muted-foreground: 180 10% 60%;
+  --accent: 180 12% 22%;
+  --accent-foreground: 174 65% 70%;
+  --destructive: 0 62% 55%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 180 12% 20%;
+  --input: 180 12% 20%;
+  --ring: 174 65% 48%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-space-grotesk), sans-serif;
+  }
+}
