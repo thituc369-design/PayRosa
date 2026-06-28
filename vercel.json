@@ -1,0 +1,8 @@
+{
+  "build": {
+    "env": {
+      "DRIZZLE_DATABASE_URL": "postgres://placeholder:placeholder@localhost:5432/placeholder",
+      "SESSION_SECRET": "payrosa-build-time-placeholder-session-secret-32chars-min"
+    }
+  }
+}

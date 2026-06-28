@@ -98,6 +98,23 @@ release  7fd82f2602116dcda315983b605e3cc531271ed79c12aba41a455f2231ab1179  (inst
 <img src="screen-shot/09-mobile.jpg" alt="Mobile landing" width="200"/>
 </div>
 
+## Network usage
+
+Pulled live from `GET /api/stats`. No seeded rows, no demo data — every number comes from a real wallet and a confirmed on-chain settlement.
+
+![Stats](screen-shot/stats.jpg)
+
+| Metric | Count |
+|---|---|
+| Unique wallets | 71 |
+| Freelancers | 71 |
+| Logins | 90 |
+| Invoices created | 15 |
+| Paid invoices | 7 |
+| On-chain transactions | 7 |
+| XLM settled | 18 |
+| USDC settled | 0 |
+
 ## Tech stack
 
 | Layer | Choice |
