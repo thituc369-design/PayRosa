@@ -60,6 +60,13 @@ client who gives up. PayRosa removes that friction end to end.
 - **Network-pinned signing.** Signing is locked to testnet, so connecting works
   even if the wallet's active network is Mainnet.
 
+---
+## Demo & Pitch Deck
+
+- **Demo Video:** [Watch Demo](https://drive.google.com/file/d/1DWK7VjxEQtsheViQL-RdFZkEzsq4yfge/view?usp=drive_link)
+- **Pitch Deck:** [View Pitch Deck](https://drive.google.com/file/d/1YbxY9URlczSEDS5IGD3GyvD4ScSu2M8w/view?usp=drive_link)
+---
+
 ## The escrow contract
 
 `contracts/payrosa-escrow` is a Soroban smart contract (Rust, `soroban-sdk` 22),
