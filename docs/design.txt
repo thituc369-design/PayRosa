@@ -1,0 +1,50 @@
+PAYROSA — DESIGN NOTES
+
+
+ELEVATOR PITCH
+
+Invoice clients and get paid in seconds, on-chain. PayRosa turns an invoice into
+a Stellar payment link. Your client opens it, connects a wallet, and the money
+lands directly in your wallet with a verifiable transaction hash.
+
+
+PROBLEM
+
+Cross-border freelancer payouts are slow and expensive. Wires and remittance
+apps take days and skim 5 to 10 percent. Asking clients to use crypto usually
+fails on a missing trustline or the wrong network, so the payment stalls.
+
+
+SOLUTION
+
+A pay-by-link invoice settled on Stellar. The freelancer connects once, creates
+an invoice, and shares a link. The client pays on-chain from any Stellar wallet.
+XLM is the default asset because native payments need no trustline, so a payer
+is never blocked. USDC is one tap away through an in-app changeTrust. The server
+verifies each signed payment matches the invoice before broadcasting it, so a
+settlement is always real and always provable.
+
+
+DEMO FLOW
+
+1. Open the landing page and choose Connect wallet.
+2. Sign the SEP-10 challenge. The dashboard opens with the wallet chip showing.
+3. Create an invoice: client name, description, amount, asset (XLM default).
+4. Open the public pay link and pay with a connected wallet.
+5. The invoice flips to paid and shows a stellar.expert transaction link.
+6. Visit Network stats to see the real interaction counts update.
+
+
+WOW MOMENT
+
+The pay page settles the invoice with a single tap and immediately shows a real,
+clickable transaction hash on stellar.expert. There is no simulated success: the
+amount moved on the Stellar network and you can verify it yourself.
+
+
+VISUAL IDENTITY
+
+Teal-forward palette with a deep teal primary and warm off-white surfaces.
+Space Grotesk for headings, DM Sans for body. Rounded cards, generous spacing,
+one clear primary action per screen, and designed loading, empty, and error
+states throughout.

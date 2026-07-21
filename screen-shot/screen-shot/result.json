@@ -1,0 +1,31 @@
+{
+  "project": "006",
+  "appname": "payrosa",
+  "url": "https://payrosa.vercel.app",
+  "fixtureImported": true,
+  "stubRemoved": true,
+  "connectPopupApproved": true,
+  "coreActionApproved": true,
+  "txHash": "2db16a72f23668e22fa220e9da708331dd78f4d5761de1ff8d031646c121da76",
+  "shots": [
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/screen-shot/01-landing.jpg",
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/screen-shot/02-connect-popup.jpg",
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/screen-shot/03-approve.jpg",
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/screen-shot/04-dashboard.jpg",
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/screen-shot/05-new-invoice.jpg",
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/screen-shot/06-pay-popup.jpg",
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/screen-shot/07-pay-success.jpg",
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/screen-shot/08-stats.jpg",
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/screen-shot/09-mobile.jpg"
+  ],
+  "steps": [
+    "grant popup approved",
+    "SEP-10 challenge sign popup approved",
+    "connected chip \"GBL5…IE47\"",
+    "invoice created 71b6f646-7aa4-4796-98bf-8ff59cf4ffbd",
+    "pay attempt 1: error",
+    "pay attempt 2: error",
+    "pay attempt 3: paid",
+    "paid on-chain txHash=2db16a72f23668e22fa220e9da708331dd78f4d5761de1ff8d031646c121da76"
+  ]
+}

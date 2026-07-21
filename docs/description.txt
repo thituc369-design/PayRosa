@@ -1,0 +1,27 @@
+PAYROSA — SHORT DESCRIPTION
+
+PayRosa is pay-by-link invoicing for freelancers, settled through a Soroban
+escrow smart contract on Stellar. Create an invoice, share the link, and your
+client funds an on-chain escrow with one signature; the contract instantly
+releases the payout to your wallet with a real transaction hash. XLM is the
+default settlement asset so any funded wallet can pay with no trustline, and
+USDC is a one-tap opt-in. No banks, no multi-day waits, no chargebacks.
+
+TRACK
+
+Payments and Commerce.
+
+STELLAR FEATURES USED
+
+1. Soroban escrow smart contract (deposit / release / refund) custodying the
+   invoice amount via the native XLM Stellar Asset Contract.
+   Contract: CABRI2VIB5OMWHOTXPGSY473OMSCIYHW4OJB6N2G66IYYO5COUH3233X (testnet).
+2. SEP-10 style wallet authentication (sign and verify a challenge).
+3. Native XLM and issued-asset USDC via Stellar Asset Contracts.
+4. In-app USDC trustline (changeTrust) opt-in.
+5. SEP-7 payment URIs and QR codes per invoice.
+6. Soroban RPC: simulate, assemble, submit and poll contract invocations.
+
+LIVE URL
+
+https://payrosa.vercel.app

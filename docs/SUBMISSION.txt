@@ -1,0 +1,84 @@
+PAYROSA — STELLAR APAC HACKATHON SUBMISSION
+
+
+PROJECT NAME
+
+PayRosa
+
+
+PROJECT DESCRIPTION
+
+PayRosa is pay-by-link invoicing for freelancers, settled on Stellar. A
+freelancer connects a wallet, creates an invoice, and shares a public payment
+link. The client opens the link, connects a wallet, and pays on-chain. Funds
+land directly in the freelancer's Stellar wallet in seconds with a real
+transaction hash. XLM is the default settlement asset so any funded wallet can
+pay with no trustline; USDC is available as a one-tap opt-in.
+
+
+PROBLEM STATEMENT
+
+Freelancers who work across borders wait days and lose 5 to 10 percent on every
+payout through wires, PayPal, or Payoneer. Moving to crypto usually swaps one
+problem for another: a missing trustline, the wrong network, an op_no_trust
+error, and a client who gives up. The result is a payment that should take
+seconds taking a week.
+
+
+PROPOSED SOLUTION
+
+1. The freelancer connects a Stellar wallet using a SEP-10 style challenge that
+   is signed and verified server-side. The workspace is provisioned on connect.
+2. The freelancer creates an invoice and picks an asset. XLM is pre-selected
+   because native payments require no trustline.
+3. PayRosa generates a public pay page and a SEP-7 QR code per invoice.
+4. The client opens the link, connects a wallet, and pays. The server verifies
+   the signed transaction matches the invoice destination, asset, and amount,
+   submits it to Horizon, and marks the invoice paid with the confirmed hash.
+5. The freelancer can pay earnings out to any Stellar address as a real
+   on-chain transfer.
+
+
+TARGET USERS / AUDIENCE
+
+Independent freelancers, contractors, and small studios in the Philippines and
+the wider APAC region who invoice cross-border clients and want fast, low-fee
+settlement without bank delays or chargebacks.
+
+
+SELECTED FOCUS TRACK
+
+Payments and Commerce.
+
+
+EXPECTED STELLAR INTEGRATION
+
+1. Soroban escrow smart contract (payrosa-escrow, soroban-sdk 22) that custodies
+   an invoice between deposit, release and refund via the native XLM Stellar
+   Asset Contract. Deployed and initialized on testnet.
+   Contract ID: CABRI2VIB5OMWHOTXPGSY473OMSCIYHW4OJB6N2G66IYYO5COUH3233X
+2. SEP-10 style wallet authentication: a challenge transaction is signed by the
+   wallet and the signature is verified on the server before a session is set.
+3. Native XLM and issued-asset USDC via Stellar Asset Contracts; USDC is enabled
+   with an in-app changeTrust.
+4. SEP-7 payment URIs generated per invoice for QR-based wallet payment.
+5. Soroban RPC: simulate, assemble, submit and poll the contract invocations.
+   The client funds the escrow; funds can only release to the freelancer or
+   refund the client, so a settlement cannot be faked or mis-routed.
+
+
+LIVE DEPLOYMENT
+
+https://payrosa.vercel.app
+Network: Stellar testnet
+Escrow contract: CABRI2VIB5OMWHOTXPGSY473OMSCIYHW4OJB6N2G66IYYO5COUH3233X
+On-chain escrow lifecycle (deposit then release):
+deposit: 85ed9624c030d9a437a3faa3aca13ea5625c09d09ba51c829110bd0d52a30fe4
+release: 7fd82f2602116dcda315983b605e3cc531271ed79c12aba41a455f2231ab1179
+
+
+TESTNET DEPLOYER KEY (TESTNET ONLY, SAFE TO SHARE)
+
+Public:  GBL5RJKF4QNJ4ZPLJZ7PS7K5A4J44VEZJRV2CRTFFDRVSY2N76AIIE47
+Secret:  SDL4SWRGFBZ5XBB5EORL3BHLUSETFBVVQ6OIESURFR7D4BFQQJKMJI3P
+Passphrase: Test SDF Network ; September 2015
