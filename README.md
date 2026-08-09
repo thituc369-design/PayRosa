@@ -46,7 +46,7 @@ Funds land directly in your wallet with a real transaction hash — no banks, no
 
 Submit your GitHub repository link below before the monthly deadline:
 
-**https://github.com/your-org/PayRosa**
+**https://github.com/thituc369-design/PayRosa**
 
 <details>
 <summary>Current evidence totals</summary>
