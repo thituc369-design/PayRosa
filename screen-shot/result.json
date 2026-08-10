@@ -1,0 +1,25 @@
+{
+  "project": "006",
+  "appname": "payrosa",
+  "url": "https://payrosa.vercel.app",
+  "connectPass": true,
+  "coreFlowPass": true,
+  "txHash": "23665726f6576f26ed0a630b3a7e472387e208d83e98a4185d9638d9a1220faf",
+  "steps": [
+    "landing loaded",
+    "connected — chip \"GBL5…IE47\", verify=200",
+    "invoice created d8d5846d-23a3-43a5-97a5-d7f316991e17",
+    "paid on-chain — txHash=23665726f6576f26ed0a630b3a7e472387e208d83e98a4185d9638d9a1220faf"
+  ],
+  "shots": [
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/source-code/screen-shot/01-landing.jpg",
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/source-code/screen-shot/02-connect.jpg",
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/source-code/screen-shot/03-dashboard.jpg",
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/source-code/screen-shot/04-new-invoice.jpg",
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/source-code/screen-shot/05-invoice-detail.jpg",
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/source-code/screen-shot/06-pay-page.jpg",
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/source-code/screen-shot/07-pay-success.jpg",
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/source-code/screen-shot/08-stats.jpg",
+    "/home/thiha/workspace/monthly/projects/006-freelancer-invoice-instant-payout/source-code/screen-shot/09-mobile.jpg"
+  ]
+}
