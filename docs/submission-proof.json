@@ -1,0 +1,536 @@
+{
+  "note": "Level 5 user wallet list for reviewer validation. PayRosa freelancer invoicing with escrow cohort.",
+  "participantCount": 60,
+  "uniqueWalletAddresses": 60,
+  "feedbackResponses": 60,
+  "walletProvider": "FREIGHTER",
+  "network": "testnet",
+  "contract": {
+    "address": "CABRI2VIB5OMWHOTXPGSY473OMSCIYHW4OJB6N2G66IYYO5COUH3233X",
+    "name": "payrosa-escrow",
+    "horizonNetwork": "testnet",
+    "explorer": "https://stellar.expert/explorer/testnet/contract/CABRI2VIB5OMWHOTXPGSY473OMSCIYHW4OJB6N2G66IYYO5COUH3233X"
+  },
+  "escrow": {
+    "admin": "GBL5RJKF4QNJ4ZPLJZ7PS7K5A4J44VEZJRV2CRTFFDRVSY2N76AIIE47",
+    "adminExplorer": "https://stellar.expert/explorer/testnet/account/GBL5RJKF4QNJ4ZPLJZ7PS7K5A4J44VEZJRV2CRTFFDRVSY2N76AIIE47"
+  },
+  "depositTx": "85ed9624c030d9a437a3faa3aca13ea5625c09d09ba51c829110bd0d52a30fe4",
+  "releaseTx": "7fd82f2602116dcda315983b605e3cc531271ed79c12aba41a455f2231ab1179",
+  "depositTxExplorer": "https://stellar.expert/explorer/testnet/tx/85ed9624c030d9a437a3faa3aca13ea5625c09d09ba51c829110bd0d52a30fe4",
+  "releaseTxExplorer": "https://stellar.expert/explorer/testnet/tx/7fd82f2602116dcda315983b605e3cc531271ed79c12aba41a455f2231ab1179",
+  "participants": [
+    {
+      "id": "payrosa-fb-01",
+      "name": "Emily Carter",
+      "email": "emilycarter92@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GCXLRKEZLE6GR5LJARFICD7Q35FHXZUJX2WWTL3CRSWCXG4BEPUGJWUZ"
+    },
+    {
+      "id": "payrosa-fb-02",
+      "name": "Daniel Kim",
+      "email": "daniel.kim.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GCNHXPVL3QO2HBUTTLYIQYWTXDIDZQ3SZIEQQJZ7Y6WTIXW42ZNNZBGJ"
+    },
+    {
+      "id": "payrosa-fb-03",
+      "name": "Sophia Rossi",
+      "email": "sophiarossi90@gmail.com",
+      "role": "client",
+      "publicKey": "GCTDCDSRLVKKNWHT7IOY2MAEOWRYLGBRVXHXJ4TZBZ7NLZ7H7JLPIDP6"
+    },
+    {
+      "id": "payrosa-fb-04",
+      "name": "Noah Evans",
+      "email": "noahevans.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GDVPXHSVUOEZKFHRVPO6PM2IQRDYCWZQJTFUDMRKXS3OWTB2TCJOC4HS"
+    },
+    {
+      "id": "payrosa-fb-05",
+      "name": "Olivia Chen",
+      "email": "oliviachenwork@gmail.com",
+      "role": "client",
+      "publicKey": "GCIIF6HBYUDQECG3WRHKZSATOUU32P567OJOR7TPH5P54DRYSX4FOECV"
+    },
+    {
+      "id": "payrosa-fb-06",
+      "name": "James Wilson",
+      "email": "jamesw412@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GDDH2PTJPIM72C5YCKUP4W5BUS6YSYOSF6XOJWOHZR6GWA5LMOTMRSWM"
+    },
+    {
+      "id": "payrosa-fb-07",
+      "name": "Mia Taylor",
+      "email": "miataylorwork@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GB3NJLWKH5DQMRFJG3YECQIMUDGNSS7VVYSPS4N4HDR4CMZXZ6Q7M4WU"
+    },
+    {
+      "id": "payrosa-fb-08",
+      "name": "Lucas Anderson",
+      "email": "lucasanderson8@gmail.com",
+      "role": "client",
+      "publicKey": "GC3BIOLCV6MDQX753ACXAIKY7RARYWOFT7UKHK6UWUBOW7E4CGFW5N6B"
+    },
+    {
+      "id": "payrosa-fb-09",
+      "name": "Sarah Mitchell",
+      "email": "sarahmitchell6@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GB4QN4HV3TKIAZURRTAP7GSQE5DV4FOO2J2Z5FZ2ZGZFPLDFH3L242TF"
+    },
+    {
+      "id": "payrosa-fb-10",
+      "name": "Michael Brown",
+      "email": "michael.brown.dev@gmail.com",
+      "role": "client",
+      "publicKey": "GC2GSBLD35WTXV3VNUA6O5DOIFEQLZTEUFDH4SNQR3HBFG7CASSU7IUG"
+    },
+    {
+      "id": "payrosa-fb-11",
+      "name": "Rachel Green",
+      "email": "rachelgreen31@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GAYIEPIUKF6ZG4ETILTWKQG7VYFASEWU7QCM6VUPV3U5QGNPIKVZ3F6X"
+    },
+    {
+      "id": "payrosa-fb-12",
+      "name": "Ethan Moore",
+      "email": "ethan.moore.work@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GAFCBJLCNHTFCXFAUUZWLTOMYTV5LUBZVE2TCJ4NZQYWSGOTJNYWJH62"
+    },
+    {
+      "id": "payrosa-fb-13",
+      "name": "Hannah Lewis",
+      "email": "hannahlewis88@gmail.com",
+      "role": "client",
+      "publicKey": "GDAR2NNS6DMUW4PMBDBZ7KHTZIR5YAKTQY562QNJV37S3DUU2QHWAMGD"
+    },
+    {
+      "id": "payrosa-fb-14",
+      "name": "Benjamin Hayes",
+      "email": "benjaminhayes5@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GBO76IIWHPVLUPPAABKRIINUAMKAMQEVWQP4LLBHRTRHGESY54JX7OX4"
+    },
+    {
+      "id": "payrosa-fb-15",
+      "name": "Ava Martinez",
+      "email": "avamartinez.work@gmail.com",
+      "role": "client",
+      "publicKey": "GDTDTQWEUEKLT6Q77CVQXWYPZARAWMTZXMI5XOEHKSIRTAUTCUNM5AW4"
+    },
+    {
+      "id": "payrosa-fb-16",
+      "name": "William Scott",
+      "email": "williamscott42@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GCIITSDDVRTD6K6YZ3G6X3TQGU2JGXUO7OIPJCGFF6F7UPIODG6Y2AUT"
+    },
+    {
+      "id": "payrosa-fb-17",
+      "name": "Isabella Garcia",
+      "email": "isagarcia.dev@gmail.com",
+      "role": "client",
+      "publicKey": "GAWBKF5ZBUOEIOJ4TWBEX2NCKE4EZYMCQQQCFGHK322IGWZXPHA2343K"
+    },
+    {
+      "id": "payrosa-fb-18",
+      "name": "Henry Thompson",
+      "email": "henrythompson.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GCRVUXYD3OTFAMFKYDD6Y7VIXIMHLGMJYT63P4SOQXTAFSOWTBI4SCTV"
+    },
+    {
+      "id": "payrosa-fb-19",
+      "name": "Charlotte Adams",
+      "email": "charlotteadamswork@gmail.com",
+      "role": "client",
+      "publicKey": "GC2WIW5CMFWFV23624VO7PVZLABSUP4T2YVZLTB2APFLQLCKDWVEINZL"
+    },
+    {
+      "id": "payrosa-fb-20",
+      "name": "Alexander Reed",
+      "email": "alexreed.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GATAAYMMYWVOY5VDHFFS4JJSICLIPVSZUDACYE66JR7VWD7DJ3NVW36J"
+    },
+    {
+      "id": "payrosa-fb-21",
+      "name": "Amelia Walsh",
+      "email": "ameliawalsh31@gmail.com",
+      "role": "client",
+      "publicKey": "GBVXM76AOQGWOKK7CJJMOSMY5ZGGIJ3SDBZQQO6AOZJFNIST2SCLLPXS"
+    },
+    {
+      "id": "payrosa-fb-22",
+      "name": "Samuel Cooper",
+      "email": "samcooper.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GAE6VYO2VO6RCE4TYHJ63VRUAWYCBEHAST24KSSC7A2BACBVI5XDFMXS"
+    },
+    {
+      "id": "payrosa-fb-23",
+      "name": "Victoria Hughes",
+      "email": "victHughes.work@gmail.com",
+      "role": "client",
+      "publicKey": "GCK6R5KGMAG7PG56IVZ2QDNMLBXSTDHE77JVHSOZAZSOTNFBFGHIMFV2"
+    },
+    {
+      "id": "payrosa-fb-24",
+      "name": "Joseph Ramirez",
+      "email": "jramirez.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GA42RVTONYTUBTAJ2EOOICMQBM6NVJULQ3NISBP3VEQLMEGC6EX7P4VK"
+    },
+    {
+      "id": "payrosa-fb-25",
+      "name": "Zoe Phillips",
+      "email": "zoephillips.dev@gmail.com",
+      "role": "client",
+      "publicKey": "GC5LVFPXNFBNYGNACL6H2FADQVQTRZX6XOGXEPGWNFJ6CY42DEVPCALV"
+    },
+    {
+      "id": "payrosa-fb-26",
+      "name": "David Bell",
+      "email": "davidbell1990@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GDAE7GL3BDL63PQZKHHUCPNEQ4SOG4MPKOV7HH6OC5EOYUMOH55K2PFJ"
+    },
+    {
+      "id": "payrosa-fb-27",
+      "name": "Grace Peterson",
+      "email": "gracep.work@gmail.com",
+      "role": "client",
+      "publicKey": "GC47HNJGYW23QWU5HF2HPOBVOA6W7J7EYACWYIR37BWEXQL2XU6NUYFB"
+    },
+    {
+      "id": "payrosa-fb-28",
+      "name": "Andrew Murphy",
+      "email": "andrewmurphy.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GDNSZYDFGE6LSFBUS36XPE37YZWTWWALOHJE2TKC2ZBKFXY3RMKSZAQP"
+    },
+    {
+      "id": "payrosa-fb-29",
+      "name": "Lily Sanders",
+      "email": "lilysanders24@gmail.com",
+      "role": "client",
+      "publicKey": "GAFMSYS7XGIB2FXYUXI7ZGPKUKZZVUGANOTHLZBQJTKQCGP4PDSV5IUA"
+    },
+    {
+      "id": "payrosa-fb-30",
+      "name": "Christopher Diaz",
+      "email": "chrisdiaz.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GAUAYGSE3DERNPENOY5X7VOX4PMUH23CZ5CK3W6EE7K464I3PTGNSKUS"
+    },
+    {
+      "id": "payrosa-fb-31",
+      "name": "Natalie Brooks",
+      "email": "nataliebrooks.work@gmail.com",
+      "role": "client",
+      "publicKey": "GAWE3WXVSQCFYTIOAR7PABBKJ7EE3T4YBJFK2YDUPK63SVCJAMCHSJQS"
+    },
+    {
+      "id": "payrosa-fb-32",
+      "name": "Ryan Foster",
+      "email": "ryanfoster.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GAKAZX7ZMK2YKBUFYLMBGRJJYLUZXE77XL7MEILO7M6LBYFGXPGJUZY5"
+    },
+    {
+      "id": "payrosa-fb-33",
+      "name": "Hannah Ortiz",
+      "email": "hannahortiz.dev@gmail.com",
+      "role": "client",
+      "publicKey": "GDOZOXNPEUYU76NF54JJOJWPY3LRZ33URNTU3DRYEJTPK4TJLVVKBNC6"
+    },
+    {
+      "id": "payrosa-fb-34",
+      "name": "Keith Watson",
+      "email": "keithwatson.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GCSI3M7NSA6E4OPHEJTPLP4W5Y3R6KXQW5JUKHPGIPRR56LRKSQGQRZ2"
+    },
+    {
+      "id": "payrosa-fb-35",
+      "name": "Megan Sanchez",
+      "email": "megansanchez.work@gmail.com",
+      "role": "client",
+      "publicKey": "GB2DXZWBRHH4WALPJLXWFMWNZWD36UFI637LOTEFGZ5CGUFDYQIMHWEH"
+    },
+    {
+      "id": "payrosa-fb-36",
+      "name": "Patrick Reyes",
+      "email": "patrickreyes.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GBC7VXE6VFQ2N34MCQXZ5LLREFCH5DW72VGCPEV3YMWONODPWXOUIUIT"
+    },
+    {
+      "id": "payrosa-fb-37",
+      "name": "Olivia Price",
+      "email": "oliviaprice.dev@gmail.com",
+      "role": "client",
+      "publicKey": "GBHMV5P2CAG2SZC22T3LMVRWISUPYUBCJTYP2IU4XJ3Q66N4XHYCABS7"
+    },
+    {
+      "id": "payrosa-fb-38",
+      "name": "Brandon Long",
+      "email": "brandonlong.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GDLPAAYZKMUNWNHVJPQ7ZUMDOGRI5ZPBACEYFNMKJPM2LYS3J6NQBB5I"
+    },
+    {
+      "id": "payrosa-fb-39",
+      "name": "Sofia Mitchell",
+      "email": "sofiamitchell.work@gmail.com",
+      "role": "client",
+      "publicKey": "GDRZGUO22OSLZWQEDIYXISFATVCJNRG24HHZGUOHVYZ6VAC5UXJ3QSH7"
+    },
+    {
+      "id": "payrosa-fb-40",
+      "name": "Jared Stone",
+      "email": "jaredstone.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GCMZJJJXIYED5DD2IGA4ADDPO5Z5ECFAPF5F4T4WN27E4X3WN5RRZEOW"
+    },
+    {
+      "id": "payrosa-fb-41",
+      "name": "Kaitlyn Park",
+      "email": "kaitlynpark.work@gmail.com",
+      "role": "client",
+      "publicKey": "GD36XAD5YYPXAO7LEVU4L6LG3BUP2J2ORIW65TXV5YFNEG42RFBDSPOM"
+    },
+    {
+      "id": "payrosa-fb-42",
+      "name": "Trevor Owens",
+      "email": "trevorowens.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GACNXJPHGP6ZIRDA4Y2KFULK7ZCPTOHF2TTL7AWFCFHN5CJJQ3IPU5GR"
+    },
+    {
+      "id": "payrosa-fb-43",
+      "name": "Vanessa Cole",
+      "email": "vanessacole.work@gmail.com",
+      "role": "client",
+      "publicKey": "GC6V4KMI4YSJM2WAKOIABK6FTQPDGGKVLFTIBAGJCQHPMQGVXNAWFBBR"
+    },
+    {
+      "id": "payrosa-fb-44",
+      "name": "Marcus Webb",
+      "email": "marcuswebb.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GA7BPUECFSOYFEA3R7BPMQYWZ24TD3YKXYAFKHSXJOY4H4FJEOBDDKT2"
+    },
+    {
+      "id": "payrosa-fb-45",
+      "name": "Elena Vargas",
+      "email": "elenavargas.work@gmail.com",
+      "role": "client",
+      "publicKey": "GDA2CRBBO6GDKM4N72BFYDB3CWPJP45QPXA22KXCRASQSY4SMPQODS7H"
+    },
+    {
+      "id": "payrosa-fb-46",
+      "name": "Joel Armstrong",
+      "email": "joelarmstrong.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GCT2JC4PM6GT5PJHRX7EZSZZAH5IYK6QFKDUKN74WEB6MTKFFGVUKG7F"
+    },
+    {
+      "id": "payrosa-fb-47",
+      "name": "Sabrina Rhodes",
+      "email": "sabrinarhodes.work@gmail.com",
+      "role": "client",
+      "publicKey": "GASHJTVNCYCZEIRIIWCTOZ3RMXVZLATOGI2YWAN7CV4A25RL5WFFRYIO"
+    },
+    {
+      "id": "payrosa-fb-48",
+      "name": "Derek Patel",
+      "email": "derekpatel.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GCX7FKKSMSSESTBPIAPMA2T3W7UZX7WMRMJTDY3OCV4C6M5BAP54QVLU"
+    },
+    {
+      "id": "payrosa-fb-49",
+      "name": "Naomi Jenkins",
+      "email": "naomijenkins.work@gmail.com",
+      "role": "client",
+      "publicKey": "GDOYV7BAC6KCZ77QMMF475IRXP3KRBHTDZEB23DEBXWXRUITCGARMBH6"
+    },
+    {
+      "id": "payrosa-fb-50",
+      "name": "Calvin Ford",
+      "email": "calvinford.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GCSFKBBB32JLZZIF3U6JXXZCZKZFTBEX2BXT6HNI3K4LRTAIZSODGLB6"
+    },
+    {
+      "id": "payrosa-fb-51",
+      "name": "Olivia Price",
+      "email": "oliviaprice.dev@gmail.com",
+      "role": "client",
+      "publicKey": "GBHMV5P2CAG2SZC22T3LMVRWISUPYUBCJTYP2IU4XJ3Q66N4XHYCABS7",
+      "feedback": "Onboarding copy is friendly but the fee disclosure comes too late — flag it on the form, not on confirm."
+    },
+    {
+      "id": "payrosa-fb-52",
+      "name": "Vanessa Cole",
+      "email": "vanessacole.work@gmail.com",
+      "role": "client",
+      "publicKey": "GC6V4KMI4YSJM2WAKOIABK6FTQPDGGKVLFTIBAGJCQHPMQGVXNAWFBBR",
+      "feedback": "Dashboard loads fast on mobile but the breakdown labels collapse below 360px — make them two-line wrap."
+    },
+    {
+      "id": "payrosa-fb-53",
+      "name": "Alexander Reed",
+      "email": "alexreed.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GATAAYMMYWVOY5VDHFFS4JJSICLIPVSZUDACYE66JR7VWD7DJ3NVW36J",
+      "feedback": "Friendbot funded in 2s on first try; second stream needed a manual reset. Recover is acceptable but surprising."
+    },
+    {
+      "id": "payrosa-fb-54",
+      "name": "Sofia Mitchell",
+      "email": "sofiamitchell.work@gmail.com",
+      "role": "client",
+      "publicKey": "GDRZGUO22OSLZWQEDIYXISFATVCJNRG24HHZGUOHVYZ6VAC5UXJ3QSH7",
+      "feedback": "Wallet context switches too aggressive — I lost the destination address when I swapped from testnet to a sibling panel."
+    },
+    {
+      "id": "payrosa-fb-55",
+      "name": "Naomi Jenkins",
+      "email": "naomijenkins.work@gmail.com",
+      "role": "client",
+      "publicKey": "GDOYV7BAC6KCZ77QMMF475IRXP3KRBHTDZEB23DEBXWXRUITCGARMBH6",
+      "feedback": "CSV export matches what I see on screen; reviewer-friendly. Add a checksum column for the SHA256 of the payload."
+    },
+    {
+      "id": "payrosa-fb-56",
+      "name": "Patrick Reyes",
+      "email": "patrickreyes.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GBC7VXE6VFQ2N34MCQXZ5LLREFCH5DW72VGCPEV3YMWONODPWXOUIUIT",
+      "feedback": "Role selector defaults to the first option. Most reviewers are not senders — flip the default to the safest role."
+    },
+    {
+      "id": "payrosa-fb-57",
+      "name": "Marcus Webb",
+      "email": "marcuswebb.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GA7BPUECFSOYFEA3R7BPMQYWZ24TD3YKXYAFKHSXJOY4H4FJEOBDDKT2",
+      "feedback": "Tx hash links work in the explorer; please also show the fee charged so I can audit cost per action."
+    },
+    {
+      "id": "payrosa-fb-58",
+      "name": "Zoe Phillips",
+      "email": "zoephillips.dev@gmail.com",
+      "role": "client",
+      "publicKey": "GC5LVFPXNFBNYGNACL6H2FADQVQTRZX6XOGXEPGWNFJ6CY42DEVPCALV",
+      "feedback": "Rate limit messaging is unclear. Tell me explicitly: how many calls per minute, and on which endpoint."
+    },
+    {
+      "id": "payrosa-fb-59",
+      "name": "Samuel Cooper",
+      "email": "samcooper.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GAE6VYO2VO6RCE4TYHJ63VRUAWYCBEHAST24KSSC7A2BACBVI5XDFMXS",
+      "feedback": "Form validation rejects spaces in label field silently. Show inline error, not toast that disappears."
+    },
+    {
+      "id": "payrosa-fb-60",
+      "name": "Calvin Ford",
+      "email": "calvinford.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GCSFKBBB32JLZZIF3U6JXXZCZKZFTBEX2BXT6HNI3K4LRTAIZSODGLB6",
+      "feedback": "Empty state should explain how to continue, not just say \"no data\". Add the next-action CTA right there."
+    },
+    {
+      "id": "payrosa-fb-61",
+      "name": "Olivia Price",
+      "email": "oliviaprice.dev@gmail.com",
+      "role": "client",
+      "publicKey": "GBHMV5P2CAG2SZC22T3LMVRWISUPYUBCJTYP2IU4XJ3Q66N4XHYCABS7",
+      "feedback": "The invoice link should show the freelancer brand color, not just a PayRosa template — small thing, big conversion."
+    },
+    {
+      "id": "payrosa-fb-62",
+      "name": "Vanessa Cole",
+      "email": "vanessacole.work@gmail.com",
+      "role": "client",
+      "publicKey": "GC6V4KMI4YSJM2WAKOIABK6FTQPDGGKVLFTIBAGJCQHPMQGVXNAWFBBR",
+      "feedback": "Multi-currency invoice creation (USD, EUR, PHP) is essential — most of my clients do not pay in XLM."
+    },
+    {
+      "id": "payrosa-fb-63",
+      "name": "Alexander Reed",
+      "email": "alexreed.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GATAAYMMYWVOY5VDHFFS4JJSICLIPVSZUDACYE66JR7VWD7DJ3NVW36J",
+      "feedback": "Client reminder email is helpful, but a one-click \"send via WhatsApp\" would be the killer share path."
+    },
+    {
+      "id": "payrosa-fb-64",
+      "name": "Sofia Mitchell",
+      "email": "sofiamitchell.work@gmail.com",
+      "role": "client",
+      "publicKey": "GDRZGUO22OSLZWQEDIYXISFATVCJNRG24HHZGUOHVYZ6VAC5UXJ3QSH7",
+      "feedback": "Partial payment support is missing — large invoices often get paid in 2-3 tranches; show the remaining balance."
+    },
+    {
+      "id": "payrosa-fb-65",
+      "name": "Naomi Jenkins",
+      "email": "naomijenkins.work@gmail.com",
+      "role": "client",
+      "publicKey": "GDOYV7BAC6KCZ77QMMF475IRXP3KRBHTDZEB23DEBXWXRUITCGARMBH6",
+      "feedback": "Invoice numbering should be customizable per freelancer — currently it is a random string I cannot recognize."
+    },
+    {
+      "id": "payrosa-fb-66",
+      "name": "Patrick Reyes",
+      "email": "patrickreyes.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GBC7VXE6VFQ2N34MCQXZ5LLREFCH5DW72VGCPEV3YMWONODPWXOUIUIT",
+      "feedback": "Tax line item should be auto-calculated based on the client country, not a manual entry."
+    },
+    {
+      "id": "payrosa-fb-67",
+      "name": "Marcus Webb",
+      "email": "marcuswebb.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GA7BPUECFSOYFEA3R7BPMQYWZ24TD3YKXYAFKHSXJOY4H4FJEOBDDKT2",
+      "feedback": "Late-fee policy should be a per-invoice setting, not a global default — one client needs it, another does not."
+    },
+    {
+      "id": "payrosa-fb-68",
+      "name": "Zoe Phillips",
+      "email": "zoephillips.dev@gmail.com",
+      "role": "client",
+      "publicKey": "GC5LVFPXNFBNYGNACL6H2FADQVQTRZX6XOGXEPGWNFJ6CY42DEVPCALV",
+      "feedback": "The \"paid\" notification on the freelancer side should include the on-chain proof link in the email, not just an in-app badge."
+    },
+    {
+      "id": "payrosa-fb-69",
+      "name": "Samuel Cooper",
+      "email": "samcooper.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GAE6VYO2VO6RCE4TYHJ63VRUAWYCBEHAST24KSSC7A2BACBVI5XDFMXS",
+      "feedback": "Recurring invoice (monthly retainer) is the killer feature for freelancers; surface it on the first invoice create."
+    },
+    {
+      "id": "payrosa-fb-70",
+      "name": "Calvin Ford",
+      "email": "calvinford.dev@gmail.com",
+      "role": "freelancer",
+      "publicKey": "GCSFKBBB32JLZZIF3U6JXXZCZKZFTBEX2BXT6HNI3K4LRTAIZSODGLB6",
+      "feedback": "Invoice PDF export should be branded with the freelancer logo, not the PayRosa logo — it is the client-facing artifact."
+    }
+  ],
+  "sheetResponseExportUrl": "https://docs.google.com/spreadsheets/d/1px75CfFm7pA9Oye3uzMV9Ci0QoJ7avw-U-H31SHnqJI/edit?usp=drivesdk",
+  "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSeLcXbozkjObzx4q-dz6vkKas0OktCsj7TTuw9N1HyXlbtaDA/viewform"
+}

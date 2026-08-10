@@ -1,0 +1,115 @@
+PAYROSA — TECHNICAL FLOW
+
+
+ARCHITECTURE DIAGRAM
+
+   Freelancer wallet                          Client wallet
+        | (1) connect + sign SEP-10                | (4) connect + sign payment
+        v                                          v
+   +---------------------------------------------------------------+
+   |                   PayRosa (Next.js 16 on Vercel)              |
+   |                                                               |
+   |   /connect      /dashboard        /pay/[id]      /stats       |
+   |      |               |                |             |         |
+   |      v               v                v             v         |
+   |   auth.controller  invoice.service  invoice.settle stats.svc  |
+   |      |               |                |             |         |
+   +------|---------------|----------------|-------------|---------+
+          |               |                |             |
+          v               v                v             v
+       Postgres        Postgres       Soroban RPC    Postgres
+      (sessions)      (invoices)    + escrow contract (aggregate)
+                                         |
+                                         v
+                                  Stellar testnet
+                            (payrosa-escrow: deposit /
+                              release / refund on-chain)
+
+
+CORE FLOW (CONNECT -> INVOICE -> PAY)
+
+1. CONNECT
+   - Client calls POST /api/auth/challenge { publicKey }.
+   - Server builds a manageData challenge tx and returns the XDR.
+   - Wallet signs the XDR with the network pinned to testnet.
+   - Client calls POST /api/auth/verify { publicKey, signedNonce }.
+   - Server verifies the signature and the nonce, opens a session, and
+     provisions the freelancer record (wallet address = public key).
+
+2. CREATE INVOICE
+   - POST /api/invoices { clientName, description, amount, asset }.
+   - Stored with status = pending, asset defaults to XLM.
+
+3. PAY (REAL ON-CHAIN, VIA SOROBAN ESCROW)
+   - Pay page loads invoice + freelancer destination.
+   - Client connects a wallet; if asset is USDC and no trustline exists, an
+     Enable USDC button builds + signs + submits a changeTrust first.
+   - Client POSTs the payer key to POST /api/invoices/[id]/pay/prepare. The
+     server builds the escrow deposit invocation (invoice_ref = sha256(id),
+     client = payer, freelancer, token = native XLM SAC, amount), simulates it,
+     assembles the Soroban data + auth, and returns the unsigned XDR.
+   - Wallet signs the deposit; client POSTs it to POST /api/invoices/[id]/pay.
+   - Server submits the deposit to Soroban RPC (funds locked in the contract),
+     confirms get_escrow shows status = Funded with the right beneficiary, then
+     invokes release (admin-signed) for an instant payout to the freelancer.
+   - On success the invoice is marked paid with the release tx hash (and the
+     deposit hash recorded).
+
+4. CANCEL = REFUND
+   - Cancelling a funded invoice invokes the contract refund (admin-signed),
+     returning the deposit to the client on-chain before the invoice flips to
+     cancelled.
+
+5. PAYOUT (REAL ON-CHAIN)
+   - POST /api/payouts { signedXdr } sends earnings to any Stellar address.
+   - Server confirms the source is the freelancer wallet, submits, records hash.
+
+
+SOROBAN ESCROW CONTRACT (contracts/payrosa-escrow, soroban-sdk 22)
+
+   Contract ID: CABRI2VIB5OMWHOTXPGSY473OMSCIYHW4OJB6N2G66IYYO5COUH3233X (testnet)
+   Admin:       GBL5RJKF4QNJ4ZPLJZ7PS7K5A4J44VEZJRV2CRTFFDRVSY2N76AIIE47
+   Token:       CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC (native XLM SAC)
+   Entrypoints: deposit, release, refund, get_escrow, pause, unpause, upgrade.
+
+   ESCROW STATE MACHINE
+      (none) --deposit--> Funded --release--> Released
+                          Funded --refund---> Refunded
+      Funds can only ever go to the freelancer (release) or the client (refund).
+
+
+INVOICE STATE MACHINE
+
+   pending --(escrow deposit + release)--> paid
+   pending --(cancel; refund if funded)--> cancelled
+
+   paid and cancelled are terminal. settle() is idempotent on paid.
+
+
+API ENDPOINTS
+
+   POST /api/auth/challenge      start SEP-10 challenge
+   POST /api/auth/verify         verify signature, set session
+   GET  /api/auth/me             current session public key
+   POST /api/auth/logout         clear session
+   GET  /api/invoices            list invoices (auth)
+   POST /api/invoices            create invoice (auth)
+   GET  /api/invoices/[id]       invoice + SEP-7 URI (public)
+   POST /api/invoices/[id]/pay/prepare  build escrow deposit XDR (public)
+   POST /api/invoices/[id]/pay   submit deposit + release payout (public)
+   GET  /api/payouts             list payouts (auth)
+   POST /api/payouts             send payout with signed XDR (auth)
+   GET  /api/stream              SSE feed of incoming payments (auth)
+   GET  /api/stats               public usage counts
+
+
+SECURITY NOTES
+
+   - Signing is pinned to the testnet passphrase, independent of the wallet's
+     active network.
+   - Settlement runs through the Soroban escrow contract: the client funds the
+     contract, and funds can only be released to the freelancer or refunded to
+     the client. The server confirms get_escrow shows Funded with the correct
+     beneficiary before releasing, so a settlement cannot be faked.
+   - Sessions are HttpOnly cookies with a server-side expiry.
+   - Demo and seed keys are excluded from the public stats counts.
