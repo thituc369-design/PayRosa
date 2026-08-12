@@ -2,7 +2,7 @@ import { and, eq, gt } from 'drizzle-orm';
 import type { NextRequest } from 'next/server';
 import { z } from 'zod';
 import { db } from '@/server/db/client';
-import { sessions } from '@/server/db/schema';
+import { INVOICE_STATUSES, sessions } from '@/server/db/schema';
 import { readSessionCookie } from '@/server/lib/cookies';
 import { AppError, ok } from '@/server/lib/http';
 import { invoiceService } from '@/server/service/invoice.service';
@@ -28,14 +28,28 @@ const createSchema = z.object({
   asset: z.enum(['XLM', 'USDC']).default('XLM'),
 });
 
+const listQuerySchema = z.object({
+  status: z.enum(INVOICE_STATUSES).optional(),
+  cursor: z.string().min(1).optional(),
+  limit: z.coerce.number().int().min(1).max(100).optional(),
+});
+
 export async function GET(req: NextRequest) {
   try {
     const publicKey = await getPublicKey(req);
-    const invoices = await invoiceService.list(publicKey);
-    return ok({ invoices });
+    const { status, cursor, limit } = listQuerySchema.parse(
+      Object.fromEntries(req.nextUrl.searchParams),
+    );
+    const { invoices, nextCursor } = await invoiceService.list(publicKey, {
+      status,
+      cursor,
+      limit,
+    });
+    return ok({ invoices, nextCursor });
   } catch (err) {
     if (err instanceof AppError)
       return Response.json({ error: err.message }, { status: err.status });
+    if (err instanceof z.ZodError) return Response.json({ error: err.issues }, { status: 400 });
     return Response.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

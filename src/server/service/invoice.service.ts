@@ -1,6 +1,11 @@
-import { and, desc, eq } from 'drizzle-orm';
+import { and, desc, eq, lt, or } from 'drizzle-orm';
 import { db } from '@/server/db/client';
-import { type InvoiceAsset, freelancerInvoices, freelancers } from '@/server/db/schema';
+import {
+  type InvoiceAsset,
+  type InvoiceStatus,
+  freelancerInvoices,
+  freelancers,
+} from '@/server/db/schema';
 import { AppError } from '@/server/lib/http';
 import {
   getEscrowState,
@@ -9,6 +14,38 @@ import {
   submitSigned,
 } from '@/server/stellar/escrow';
 import { usdcCode, usdcIssuer } from '@/server/stellar/network';
+
+const DEFAULT_PAGE_SIZE = 20;
+
+export type InvoiceListPage = {
+  invoices: (typeof freelancerInvoices.$inferSelect)[];
+  nextCursor: string | null;
+};
+
+type InvoiceCursor = { createdAt: Date; id: string };
+
+/** Opaque keyset cursor: createdAt + id, the same columns the page orders by. */
+function encodeInvoiceCursor(row: InvoiceCursor): string {
+  return `${row.createdAt.toISOString()}_${row.id}`;
+}
+
+function decodeInvoiceCursor(cursor: string): InvoiceCursor {
+  const separatorIndex = cursor.lastIndexOf('_');
+  const rawCreatedAt = cursor.slice(0, separatorIndex);
+  const id = cursor.slice(separatorIndex + 1);
+  const createdAt = new Date(rawCreatedAt);
+  if (!id || Number.isNaN(createdAt.getTime())) {
+    throw new AppError('INVALID_INPUT', 'Invalid pagination cursor', 400);
+  }
+  return { createdAt, id };
+}
+
+function cursorCondition({ createdAt, id }: InvoiceCursor) {
+  return or(
+    lt(freelancerInvoices.createdAt, createdAt),
+    and(eq(freelancerInvoices.createdAt, createdAt), lt(freelancerInvoices.id, id)),
+  )!;
+}
 
 /** Trim trailing zeros from a decimal amount for display ("12.500" -> "12.5"). */
 export function formatAmount(amount: string): string {
@@ -64,15 +101,30 @@ export const invoiceService = {
     return invoice;
   },
 
-  async list(publicKey: string): Promise<(typeof freelancerInvoices.$inferSelect)[]> {
+  async list(
+    publicKey: string,
+    options: { status?: InvoiceStatus; cursor?: string; limit?: number } = {},
+  ): Promise<InvoiceListPage> {
     const freelancer = await db.query.freelancers.findFirst({
       where: eq(freelancers.publicKey, publicKey),
     });
-    if (!freelancer) return [];
-    return db.query.freelancerInvoices.findMany({
-      where: eq(freelancerInvoices.freelancerId, freelancer.id),
-      orderBy: [desc(freelancerInvoices.createdAt)],
+    if (!freelancer) return { invoices: [], nextCursor: null };
+
+    const pageSize = options.limit ?? DEFAULT_PAGE_SIZE;
+    const conditions = [eq(freelancerInvoices.freelancerId, freelancer.id)];
+    if (options.status) conditions.push(eq(freelancerInvoices.status, options.status));
+    if (options.cursor) conditions.push(cursorCondition(decodeInvoiceCursor(options.cursor)));
+
+    const rows = await db.query.freelancerInvoices.findMany({
+      where: and(...conditions),
+      orderBy: [desc(freelancerInvoices.createdAt), desc(freelancerInvoices.id)],
+      limit: pageSize + 1,
     });
+
+    const hasMore = rows.length > pageSize;
+    const invoices = hasMore ? rows.slice(0, pageSize) : rows;
+    const nextCursor = hasMore ? encodeInvoiceCursor(invoices[invoices.length - 1]) : null;
+    return { invoices, nextCursor };
   },
 
   async getById(id: string): Promise<typeof freelancerInvoices.$inferSelect | undefined> {
