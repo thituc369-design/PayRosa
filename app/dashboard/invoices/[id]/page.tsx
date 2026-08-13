@@ -36,6 +36,7 @@ export default function InvoiceDetailPage({ params }: { params: Promise<{ id: st
   const [sep7Uri, setSep7Uri] = useState<string | null>(null);
   const [qrDataUrl, setQrDataUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [cancelling, setCancelling] = useState(false);
 
   useEffect(() => {
     fetch(`/api/invoices/${id}`)
@@ -70,6 +71,22 @@ export default function InvoiceDetailPage({ params }: { params: Promise<{ id: st
     }, 4000);
     return () => clearInterval(interval);
   }, [id, invoice?.status]);
+
+  const cancelInvoice = async () => {
+    setCancelling(true);
+    try {
+      const res = await fetch(`/api/invoices/${id}/cancel`, { method: 'POST' });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error?.message ?? json.error ?? 'Could not cancel invoice');
+      const d = json.data ?? json;
+      setInvoice(d.invoice);
+      toast.success('Invoice cancelled');
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : 'Could not cancel invoice');
+    } finally {
+      setCancelling(false);
+    }
+  };
 
   const copyPayLink = () => {
     navigator.clipboard.writeText(`${window.location.origin}/pay/${id}`);
@@ -181,6 +198,15 @@ export default function InvoiceDetailPage({ params }: { params: Promise<{ id: st
             <Zap className="h-3 w-3 animate-pulse" />
             Watching the chain — this page updates the moment it's paid.
           </div>
+
+          <button
+            type="button"
+            onClick={cancelInvoice}
+            disabled={cancelling}
+            className="mt-4 w-full rounded-lg border border-rose-200 px-3 py-2 text-sm font-semibold text-rose-600 hover:bg-rose-50 disabled:opacity-60 transition-colors"
+          >
+            {cancelling ? 'Cancelling…' : 'Cancel invoice'}
+          </button>
         </div>
       )}
 
