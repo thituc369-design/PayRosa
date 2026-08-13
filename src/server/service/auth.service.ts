@@ -7,7 +7,7 @@ import {
   StrKey,
   TransactionBuilder,
 } from '@stellar/stellar-sdk';
-import { and, eq, gt, isNull } from 'drizzle-orm';
+import { and, eq, gt, isNull, lt } from 'drizzle-orm';
 import { env } from '@/server/config/env';
 import { stellar } from '@/server/config/stellar';
 import { db } from '@/server/db/client';
@@ -116,5 +116,21 @@ export const authService = {
 
   async destroySession(sessionId: string): Promise<void> {
     await db.delete(sessions).where(eq(sessions.id, sessionId));
+  },
+
+  /**
+   * Delete sessions and auth nonces past their expiry so the tables do not
+   * grow without bound. Meant to run on a schedule (see /api/cron/sweep).
+   */
+  async sweepExpired(now: Date = new Date()): Promise<{ sessions: number; nonces: number }> {
+    const deletedSessions = await db
+      .delete(sessions)
+      .where(lt(sessions.expiresAt, now))
+      .returning({ id: sessions.id });
+    const deletedNonces = await db
+      .delete(authNonces)
+      .where(lt(authNonces.expiresAt, now))
+      .returning({ nonce: authNonces.nonce });
+    return { sessions: deletedSessions.length, nonces: deletedNonces.length };
   },
 };
