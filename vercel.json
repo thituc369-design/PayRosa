@@ -4,5 +4,11 @@
       "DRIZZLE_DATABASE_URL": "postgres://placeholder:placeholder@localhost:5432/placeholder",
       "SESSION_SECRET": "payrosa-build-time-placeholder-session-secret-32chars-min"
     }
-  }
+  },
+  "crons": [
+    {
+      "path": "/api/cron/sweep",
+      "schedule": "0 * * * *"
+    }
+  ]
 }
