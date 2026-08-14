@@ -2,6 +2,7 @@ import { eq } from 'drizzle-orm';
 import { CheckCircle, Clock, ExternalLink, ShieldCheck, XCircle } from 'lucide-react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { explorerTxUrl } from '@/app/lib/stellar';
 import { db } from '@/server/db/client';
 import { freelancerInvoices, freelancers } from '@/server/db/schema';
 import { formatAmount } from '@/server/service/invoice.service';
@@ -106,7 +107,7 @@ export default async function PublicPayPage({ params }: { params: Promise<{ id: 
               </p>
               {invoice.txHash && (
                 <a
-                  href={`https://stellar.expert/explorer/mainnet/tx/${invoice.txHash}`}
+                  href={explorerTxUrl(invoice.txHash)}
                   target="_blank"
                   rel="noreferrer"
                   className="mt-2 inline-flex items-center gap-1 text-xs text-teal-600 underline"

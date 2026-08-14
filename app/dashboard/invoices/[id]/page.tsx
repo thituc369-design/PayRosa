@@ -4,6 +4,7 @@ import { ArrowLeft, CheckCircle, Clock, Copy, ExternalLink, XCircle, Zap } from 
 import Link from 'next/link';
 import { use, useEffect, useState } from 'react';
 import { toast } from 'sonner';
+import { explorerTxUrl } from '@/app/lib/stellar';
 
 interface Invoice {
   id: string;
@@ -136,7 +137,7 @@ export default function InvoiceDetailPage({ params }: { params: Promise<{ id: st
             Paid {new Date(invoice.paidAt).toLocaleString()}
             {invoice.txHash && (
               <a
-                href={`https://stellar.expert/explorer/mainnet/tx/${invoice.txHash}`}
+                href={explorerTxUrl(invoice.txHash)}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1 underline"
