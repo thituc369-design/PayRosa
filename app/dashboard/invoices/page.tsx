@@ -2,7 +2,7 @@
 
 import { ExternalLink, FileText, Plus, Search } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { toast } from 'sonner';
 
 interface Invoice {
@@ -28,18 +28,37 @@ const STATUS_COLORS: Record<string, string> = {
   cancelled: 'bg-rose-100 text-rose-600',
 };
 
+const STATUS_FILTERS = ['all', 'pending', 'paid', 'cancelled'] as const;
+type StatusFilter = (typeof STATUS_FILTERS)[number];
+
 export default function InvoicesPage() {
   const [invoices, setInvoices] = useState<Invoice[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [search, setSearch] = useState('');
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
+  const [nextCursor, setNextCursor] = useState<string | null>(null);
+
+  const loadPage = useCallback((filter: StatusFilter, cursor: string | null, append: boolean) => {
+    const params = new URLSearchParams();
+    if (filter !== 'all') params.set('status', filter);
+    if (cursor) params.set('cursor', cursor);
+    const setBusy = append ? setLoadingMore : setLoading;
+    setBusy(true);
+    fetch(`/api/invoices?${params.toString()}`)
+      .then((r) => r.json())
+      .then((d) => {
+        const data = d.data ?? d;
+        setInvoices((prev) => (append ? [...prev, ...(data.invoices ?? [])] : (data.invoices ?? [])));
+        setNextCursor(data.nextCursor ?? null);
+      })
+      .catch(() => toast.error('Failed to load'))
+      .finally(() => setBusy(false));
+  }, []);
 
   useEffect(() => {
-    fetch('/api/invoices')
-      .then((r) => r.json())
-      .then((d) => setInvoices(d.data?.invoices ?? d.invoices ?? []))
-      .catch(() => toast.error('Failed to load'))
-      .finally(() => setLoading(false));
-  }, []);
+    loadPage(statusFilter, null, false);
+  }, [statusFilter, loadPage]);
 
   const filtered = invoices.filter(
     (inv) =>
@@ -49,6 +68,23 @@ export default function InvoicesPage() {
 
   return (
     <div>
+      <div className="mb-4 flex flex-wrap gap-2">
+        {STATUS_FILTERS.map((filter) => (
+          <button
+            key={filter}
+            type="button"
+            onClick={() => setStatusFilter(filter)}
+            className={`rounded-full px-3 py-1.5 text-xs font-semibold capitalize transition-colors ${
+              statusFilter === filter
+                ? 'bg-teal-600 text-white'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            }`}
+          >
+            {filter}
+          </button>
+        ))}
+      </div>
+
       <div className="mb-6 flex items-center justify-between">
         <h1 className="font-heading text-2xl font-bold text-gray-900">Invoices</h1>
         <Link
@@ -147,6 +183,19 @@ export default function InvoicesPage() {
           </table>
         )}
       </div>
+
+      {nextCursor && !loading && (
+        <div className="mt-4 text-center">
+          <button
+            type="button"
+            onClick={() => loadPage(statusFilter, nextCursor, true)}
+            disabled={loadingMore}
+            className="rounded-lg border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-60 transition-colors"
+          >
+            {loadingMore ? 'Loading…' : 'Load more'}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
